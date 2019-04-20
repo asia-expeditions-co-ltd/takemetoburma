@@ -1,0 +1,97 @@
+.content-header h1 a:hover{
+	text-decoration:none;
+}
+.skin-green .main-header a.logo {
+	text-decoration:none;
+}
+table.dataTable thead th, table.dataTable thead td{
+    padding:4px 13px !important;
+}
+.clear{
+	clear: both;
+}
+.tour_row td{
+    font-size: 85%;
+}
+table.dataTable thead th, table.dataTable thead td, table.dataTable.no-footer{
+    border-bottom: 1px solid #ccc !important;
+}
+a {
+	text-decoration: none;
+}
+ul.tree li.active{
+	background-color: #ddd;
+}
+ul.tree li.active:after{
+	content: "";
+    position: absolute;
+    border-top: 12px solid transparent;
+    border-bottom: 15px solid transparent;
+    right: 0%;
+    top: 35%;
+    border-right: 15px solid rgb(236, 240, 245);
+}
+
+.item_Image{
+    width: 150px;
+    padding: 3px;
+    cursor: move;
+    border: solid #f4f4f4 1px;
+    margin: 3px 2px 4px 1px;
+    height: 120px;
+}
+
+.panel-default>.panel-heading{
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
+.fancy-collapse-panel .panel-heading a {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    text-decoration: none;
+}
+.section-btn{
+    background-color: #ECF0F9;
+    padding: 4px 12px;
+    border: solid 1px #ecf0f5;
+}
+.fancy-collapse-panel .panel-heading a:after {
+    font-family: "FontAwesome";
+    content: "\f0d8";
+    position: absolute;
+    right: -3px;
+    font-size: 20px;
+    font-weight: 400;
+    top: 50%;
+    line-height: 1;
+    margin-top: -10px;
+}
+
+.fancy-collapse-panel .panel-heading a.collapsed:after {
+    content: "\f0d7";
+}
+
+
+a:hover{
+	text-decoration: none;
+}
+.errors{
+    /*background: rgb(243, 220, 214);*/
+    border: solid 1px #ffbeb1;
+}
+table.table tr > td{
+	vertical-align: middle;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+	border-top: 1px solid #f4f4f4 !important;
+}
+div.gallery >img{
+	padding: 5px;
+	width: 75px;
+	height: 75px;
+	float: left;
+}
+.show {
+	display: block !important;
+}
