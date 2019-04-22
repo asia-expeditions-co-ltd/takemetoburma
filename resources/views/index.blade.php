@@ -42,7 +42,7 @@ use App\component\Content;
 
 <div style="margin-top: 50px;"></div>
 
-<div class="title-section" style="background-image: url(http://2f-design.fr/themes/tee-wp/wp-content/uploads/2014/03/3.jpg); background-position: 0px -80px;">
+<div class="title-section" style="background-position: 0px -80px;">
 
 	<div class="container">
 

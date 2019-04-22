@@ -47,6 +47,7 @@ class HomeController extends Controller
             $cat = Category::find($req->cat);
             $tours=Tour::getcatTour($req->cat, config('app.web'));
         }else{
+            $prov= '';
             $cat = Category::find(0);
             $tours=Web::find(config('app.web'))->tour()->where(['status'=>1,'type'=> 1])->orderBy('id', 'DESC')->paginate(12);
         }

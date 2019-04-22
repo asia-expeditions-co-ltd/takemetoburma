@@ -3,22 +3,22 @@
 		<div class="col-md-4 col-xs-4 full">
 			<address>
                 <strong>Head Office: </strong><br>
-               	E6, No 4, Anawrahtar Road, Pazundaung Township, Yangon 11171, Myanmar (Burma)<br>		                
+               	 Anawrahtar Road, Pazundaung Township, Yangon 11171, Myanmar (Burma)<br>		                
                 <abbr title="Phone">
-                <i class="fa fa-phone-square"></i>&nbsp;+95 (1) 200 401 / (9) 506 2644  <br> 
+                <i class="fa fa-phone-square"></i>&nbsp;+95 (9) 401 533 484  <br> 
                 <!-- <abbr title="Phone">Hotline: -->
                 
-                <i class="fa fa-envelope-o"></i> info [@] takemtoburma.com
+                <i class="fa fa-envelope-o"></i> info@takemtoburma.com
             </address>	            
 		</div>			
 		<div class="col-md-1"></div>		
 		<div class="col-md-4 col-xs-8 full">
 			<div><label><h3>Connect With Us</h3></label></div>
-			<div>
+	<!-- 		<div>
 				<a href="#"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
 	            <a href="#"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
 	            <a href="#"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
-        	</div>
+        	</div> -->
 <div style="margin-top: 15px;">
 
 @if (session('message'))

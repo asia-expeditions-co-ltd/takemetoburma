@@ -11,7 +11,7 @@ use App\component\Content; ?>
         <span></span>
         <a href="{{route('getDest')}}?location={{$con->slug}}">
           <div class="caption" >
-            <h5 ><b>{{$con->province_name}}</b></h5>
+            <h4 ><b>{{$con->province_name}}</b></h4>
             </div>
           <img src="{{Content::urlImage($con->province_photo)}}" style="width: 100%; height: 100%; z-index: -2;" >
         </a>

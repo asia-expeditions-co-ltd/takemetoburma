@@ -1,6 +1,6 @@
 <?php 
 	use App\component\Content;
-	$getNews = \App\Events::where('status',1)->orderBy('id', 'DESC')->get();
+	$getNews = \App\Web::find(config('app.web'))->events()->where(['status'=>1])->orderBy('id', 'DESC')->get();
 ?>
 <div class="col-md-6">
 	<div id="carousel-example-news" class="carousel slide" data-ride="carousel">

@@ -111,7 +111,7 @@ use App\component\Content;
                 <div class="col-sm-12">
                     <div class="example" >
                         <div style="text-align: center;">
-                            <img src="https://takemetoburma.com/photos/share/thumbs/{{{ $prov->province_photo or ''}}}"  style="width:70%; height: 300px;" alt="Image">
+                            <img src="{{$image}}"  style="width:70%; height: 300px;" alt="Image">
                         </div>
                         <div style="font-family: inherit; font-weight: 500; line-height: 1.1; margin-top: 20px;">{!! $prov->province_intro or '' !!}</div>        
                     </div>
