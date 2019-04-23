@@ -4,7 +4,7 @@ use App\component\Content; ?>
     <h2><b>Our Popurlar Place</b></h2>
 </div>
 
-@foreach(\App\Province::where(['province_status'=>1, 'country_id'=> 122])->take(6)->orderBy('province_order', 'DESC')->get() as $con)
+@foreach(\App\Province::getdes_pro() as $con)
 <div class="col-sm-4 col-xs-12 golf-club wow fadeInUp animated" data-wow-delay="1s" style="visibility: visible; animation-name: fadeInUp;" >
     <div class="row"  >
       <div class="form-group item-tour" style="margin:8px; position: relative;">

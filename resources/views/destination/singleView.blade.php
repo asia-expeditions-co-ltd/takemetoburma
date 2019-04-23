@@ -10,9 +10,12 @@
 <?php 
  
     if (isset($tour->photo)) {
+        $data=\App\Province::where(['id'=>$tour->province_id])->first();
+        $imagetop = Content::urlImage( $data->province_picture, '/photos/share/');
         $image = Content::urlImage($tour->photo, '/photos/share/');
     }else {
         $image = 'img/noImage.jpg';
+        $imagetop = 'img/noImage.jpg';
     }
 ?>
 
@@ -30,7 +33,7 @@
 
               
                 <div class="item active item-slide">
-                  <img src="/photos/share/golf_.jpg" style="width: 100%; height: 100%;">
+                  <img src="{{$imagetop}}" style="width: 100%; height: 100%;">
                 </div>  
             </div>    
         </div>
