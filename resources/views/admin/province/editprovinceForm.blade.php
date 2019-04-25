@@ -65,15 +65,37 @@ use \App\component\Content; ?>
 	                            </div>
 	                            <div id="collapseTwo" class="panel-collapse " role="tabpanel" aria-labelledby="headingTwo">
 	                                <div class="panel-body">
-	                                  <a id="choosImg" href="javascript:void(0)">Choose Image</a>
+	                                  <a id="choosImg" href="javascript:void(0)">Choose Image </a>
     							       	<input name="image" type='file' id="imgInp" style="display: none;" />
                                     <center>
                                     @if($pro->province_photo != '')
-                                      <img class="img-responsive" id="blah" src="{{Content::urlImage($pro->province_photo, '/photos/share')}}" style="display:block; cursor: pointer;"/>
+                                      <img class="img-responsive" id="blah" src="{{Content::urlImage($pro->province_photo, '/photos/share/')}}" style="display:block; cursor: pointer;"/>
                                     @else
                                       <img class="img-responsive" id="blah" src="#" style="display:none; cursor: pointer;"/>
                                     @endif
                                     <input type="hidden" name="old_photo" value="{{$pro->province_photo}}">
+                                  </center>
+	                                </div>
+	                            </div>
+	                        </div>
+	                                     <div class="panel panel-default">
+	                            <div class="panel-heading" role="tab" id="headingTwo">
+	                                <h4 class="panel-title">
+	                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"><strong>Picture Feature</strong>
+	                                    </a>
+	                                </h4>
+	                            </div>
+	                            <div id="collapseTwo" class="panel-collapse " role="tabpanel" aria-labelledby="headingTwo">
+	                                <div class="panel-body">
+	                                  <a id="choosImgp" href="javascript:void(0)">Choose Picture <strong>1080 * 440</strong></a>
+    							       	<input name="imagep" type='file' id="imgInpp" style="display: none;" />
+                                    <center>
+                                    @if($pro->province_photo != '')
+                                      <img class="img-responsive" id="blahp" src="{{Content::urlImage($pro->province_picture, '/photos/share/')}}" style="display:block; cursor: pointer;"/>
+                                    @else
+                                      <img class="img-responsive" id="blahp" src="#" style="display:none; cursor: pointer;"/>
+                                    @endif
+                                    <input type="hidden" name="old_photop" value="{{$pro->province_photo}}">
                                   </center>
 	                                </div>
 	                            </div>

@@ -62,10 +62,27 @@
 	                            </div>
 	                            <div id="collapseTwo" class="panel-collapse " role="tabpanel" aria-labelledby="headingTwo">
 	                                <div class="panel-body">
-	                                  <a id="choosImg" href="javascript:void(0)">Choose Image</a>
+	                                  <a id="choosImg" href="javascript:void(0)">Choose Image <strong>1080 * 440</strong></a>
     							        	        <input name="image" type='file' id="imgInp" style="display: none;" />
           							        	  <center>
           									    	       <img class="img-responsive" id="blah" src="#" style="display: none; cursor: pointer;"/>
+    									             </center>
+	                                </div>
+	                            </div>
+	                        </div>
+	                                   <div class="panel panel-default">
+	                            <div class="panel-heading" role="tab" id="headingTwo">
+	                                <h4 class="panel-title">
+	                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"><strong>Picture Feature</strong>
+	                                    </a>
+	                                </h4>
+	                            </div>
+	                            <div id="collapseTwo" class="panel-collapse " role="tabpanel" aria-labelledby="headingTwo">
+	                                <div class="panel-body">
+	                                  <a id="choosImgp" href="javascript:void(0)">Choose Picture</a>
+    							        	        <input name="imagep" type='file' id="imgInpp" style="display: none;" />
+          							        	  <center>
+          									    	       <img class="img-responsive" id="blahp" src="#" style="display: none; cursor: pointer;"/>
     									             </center>
 	                                </div>
 	                            </div>
