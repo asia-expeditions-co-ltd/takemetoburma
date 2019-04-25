@@ -29,7 +29,8 @@ class SlideController extends Controller
     	if ($req->btnSave == 'Update') {
     		if ( $req->hasFile('slide') ) {
 	            $image = $req->file('slide');
-	            $filename = time().'-'.$image->getClientOriginalName();
+	            // $filename = time().'-'.$image->getClientOriginalName();
+                $filename=str_slug(time()."_".pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME), "_").'.'.$image->getClientOriginalExtension();
 	            $img = Image::make($image->getRealPath())->fit(1600, 770);
 	            $image->move(public_path('photos/share/'), $filename);   
 	        }else{
