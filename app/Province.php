@@ -25,12 +25,22 @@ class Province extends Model
         return $data = \DB::table('province as pro')
         ->join('tbl_tours as tour', 'tour.province_id', '=', 'pro.id')
         ->join('tour_web as tweb', 'tour.id' ,'=', 'tweb.tour_id')
-        ->select('pro.*')
-        ->groupBy('tour.province_id')
+        ->select(\DB::Raw('pro.province_name ,pro.id,tour.slug,pro.province_photo '))
+        ->groupBy(\DB::raw('(pro.province_name),(pro.id),(tour.slug),(pro.province_photo )'))
         ->where(['tour.status'=>1,'pro.province_status'=>1,'tour.country_id'=>122,'tweb.web_id'=>config('app.web')])
         ->inRandomOrder()
         ->limit(6)
         ->orderBy('pro.province_order', 'DESC')
         ->get();   
+    }
+        public static function getdes_all(){
+           return $data = DB::table('tbl_tours as tour')
+    ->select(DB::Raw('ct.country_name ,ct.id '))
+    ->groupBy(DB::raw('(ct.country_name),(ct.id)'))
+    ->join('country as ct', 'tour.country_id', '=', 'ct.id')
+    ->where(['tour.status'=>1])
+    ->get();
+     
+  
     }
 }
