@@ -388,7 +388,7 @@ a, a:hover{
     line-height: normal;
     text-transform: uppercase;
     padding-bottom: 10px;
-    color: blue;
+    color: #31708f;
 }
 .widget-title:after{
     content: "";
