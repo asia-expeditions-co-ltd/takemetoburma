@@ -52,7 +52,8 @@ class TourController extends Controller
             $photo ='';
             if($req->hasFile('gallery')){
                 foreach ($req->gallery as $key => $tmpGallary) {
-                    $gallery = time().'-'.$tmpGallary->getClientOriginalName();
+                 // $gallery = time().'-'.$tmpGallary->getClientOriginalName();
+                    $gallery = str_slug(time()."_".$tmpGallary->getClientOriginalName(), "_").'.'.$tmpGallary->getClientOriginalExtension();
                     $gimg = Image::make($tmpGallary->getRealPath())->fit(400, 270);
                     $gimg->save(public_path('photos/share/thumbs/'.$gallery));
                     $tmpGallary->move(public_path('photos/share/'), $gallery);
@@ -61,7 +62,8 @@ class TourController extends Controller
             }
             if ( $req->hasFile('image') ) {
                 $image = $req->file('image');
-                $photo = time().'-'.$image->getClientOriginalName();
+            // $photo = time().'-'.$image->getClientOriginalName();
+                $photo = str_slug(time()."_".$image->getClientOriginalName(), "_").'.'.$image->getClientOriginalExtension();
                 $img = Image::make($image->getRealPath())->fit(400, 270);
                 $img->save(public_path('photos/share/thumbs/'.$photo));
                 $image->move(public_path('photos/share/'), $photo);
@@ -144,7 +146,8 @@ class TourController extends Controller
             $photo = $req->old_photo;
             if($req->hasFile('gallery')){
                 foreach ($req->gallery as $key => $tmpGallary) {
-                    $gallery = time().'-'.$tmpGallary->getClientOriginalName();
+                    // $gallery = time().'-'.$tmpGallary->getClientOriginalName();
+                    $gallery = str_slug(time()."_".$tmpGallary->getClientOriginalName(), "_").'.'.$tmpGallary->getClientOriginalExtension();
                     $gimg = Image::make($tmpGallary->getRealPath())->fit(400, 270);
                     $gimg->save(public_path('photos/share/thumbs/'.$gallery));
                     $tmpGallary->move(public_path('photos/share/'), $gallery);
@@ -155,7 +158,8 @@ class TourController extends Controller
             }
             if ( $req->hasFile('image') ) {
                 $image = $req->file('image');
-                $photo = time().'-'.$image->getClientOriginalName();
+                // $photo = time().'-'.$image->getClientOriginalName();
+                $photo = str_slug(time()."_".$image->getClientOriginalName(), "_").'.'.$image->getClientOriginalExtension();
                 $img = Image::make($image->getRealPath())->fit(400, 270);
                 $img->save(public_path('photos/share/thumbs/'.$photo));
                 $image->move(public_path('photos/share/'), $photo);
