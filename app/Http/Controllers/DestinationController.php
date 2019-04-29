@@ -157,7 +157,6 @@ class DestinationController extends Controller
       }
       if ( $req->hasFile('imagep') ) {
           $imagep    = $req->file('imagep');
-     // $filenamep   = time().'-'.$imagep->getClientOriginalName();
           $filenamep = str_slug(time()."_".$imagep->getClientOriginalName(), "_").'.'.$imagep->getClientOriginalExtension();
           $img       = Image::make($imagep->getRealPath())->fit(400, 270);;
           $img->save(public_path('photos/share/thumbs/'.$filenamep));

@@ -90,12 +90,12 @@ use \App\component\Content; ?>
 	                                  <a id="choosImgp" href="javascript:void(0)">Choose Picture <strong>1080 * 440</strong></a>
     							       	<input name="imagep" type='file' id="imgInpp" style="display: none;" />
                                     <center>
-                                    @if($pro->province_photo != '')
+                                    @if($pro->province_picture != '')
                                       <img class="img-responsive" id="blahp" src="{{Content::urlImage($pro->province_picture, '/photos/share/')}}" style="display:block; cursor: pointer;"/>
                                     @else
                                       <img class="img-responsive" id="blahp" src="#" style="display:none; cursor: pointer;"/>
                                     @endif
-                                    <input type="hidden" name="old_photop" value="{{$pro->province_photo}}">
+                                    <input type="hidden" name="old_photop" value="{{$pro->province_picture}}">
                                   </center>
 	                                </div>
 	                            </div>
