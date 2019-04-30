@@ -65,17 +65,23 @@ use App\component\Content;
                     <label for="location" style="font-size: 12px;font-weight: 400;">Destinations</label>
                     <select class="form-control input-sm  textbox_color" id="location" name="location" onchange="this.form.submit()">
                         <option value="">--select--</option>
-                        <?php $getdata  = \App\Tour::where(['country_id'=> 122,'status'=>1])->get();
-                                   $pro_name = $getdata->groupBy('province_id');
-                            foreach ($pro_name as $key => $value): 
-                                     $data= \App\Province::whereIn('id',[$key])->get();
-                                     foreach ($data as $geta):?>
+                        <?php 
+                        foreach (\DB::table('province as pro')
+                            ->join('tbl_tours as tour', 'tour.province_id', '=', 'pro.id')
+                            ->join('tour_web as tweb', 'tour.id' ,'=', 'tweb.tour_id')
+                            ->select('pro.*')
+                            ->groupBy('tour.province_id')
+                            ->where(['tour.status'=>1,'pro.province_status'=>1,'tour.country_id'=>122,'tweb.web_id'=>config('app.web')])
+                            ->inRandomOrder()
+                            ->limit(6)
+                            ->orderBy('pro.province_order', 'DESC')
+                            ->get() as $geta):
+                        ?>
 
-                                    <option value="{{$geta->slug}}" 
-                                    <?=  isset($_GET['location']) ? ($_GET['location']== $geta->slug?'selected': '') : '' ?> >{{$geta->province_name}}
+                         <option value="{{$geta->slug}}" 
+                            <?=  isset($_GET['location']) ? ($_GET['location']== $geta->slug?'selected': '') : '' ?> >{{$geta->province_name}}
                                     </option>
                      <?php endforeach ?>    
-                   <?php endforeach ?>
                </select>
                 </form>
                 <div class="row">

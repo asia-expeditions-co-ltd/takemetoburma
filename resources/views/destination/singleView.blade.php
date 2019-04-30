@@ -235,7 +235,7 @@ Tweet</a>
         ?>
 
          <?php  $webs = \App\Web::find(config('app.web'))->tour()->where(['status'=>1, 'type'=>1, 'province_id'=> $data])->whereNotIn('title',[$getTitle])->get(); ?>
-            <div class="title text-center widget-title"><h2><b>Tour Packages in {{$pro_name  }} </b></h2></div>
+            <div class="title text-center widget-title"><h2><b>@if($webs->COUNT()>0)Tour Packages in {{$pro_name  }} @endif </b></h2></div>
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="margin-bottom:22px;">
                 <div class="carousel-inner">
                   @foreach($webs->chunk(4) as $key => $chunkTour)
