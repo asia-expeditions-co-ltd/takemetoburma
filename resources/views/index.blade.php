@@ -64,7 +64,7 @@ use App\component\Content;
 
 		<div class="col-mg-12">
 
-			@widget('our_activities')			
+			@include('widgets.gallery_des')			
 
 		</div>
 

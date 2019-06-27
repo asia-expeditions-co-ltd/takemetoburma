@@ -21,7 +21,6 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/custom.css')}}">
 	<script type="text/javascript" src="{{ asset('js/lib/jquery-3.3.1.min.js')}}"></script>
 	<script type="text/javascript" src="{{ asset('js/app.js')}}"></script>
-	<script type="text/javascript" src="{{ asset('js/angular.min.js')}}"></script>
 	<script type="text/javascript" src="{{ asset('js/custom.js')}}"></script>
 	<script type="text/javascript" src="{{ asset('js/app/controller.js')}}"></script>	
 

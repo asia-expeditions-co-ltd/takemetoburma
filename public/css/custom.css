@@ -13,7 +13,12 @@ body{
     z-index: 1;
 }
 .box-tour{
-    background-color: white;
+    border-radius: 1%;
+    background-color: #fff;
+    border: 1px solid #EEEEEE;
+}
+.box-tour:hover{
+    box-shadow: 0 0 5px #bdbdbd;
 }
 h2.title{   
     font-size: 24px;
@@ -647,7 +652,7 @@ a, a:hover{
 
 
 .title-section{
-    background-color: #f7f5f1;
+    background-color: #fafafa;
     border: solid 1px #f7f1e7;
     color: #8e7c7c;
 }
