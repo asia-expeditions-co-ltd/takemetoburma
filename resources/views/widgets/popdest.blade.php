@@ -1,7 +1,9 @@
 <?php
 use App\component\Content; ?>
-<div class="section-title welcome-section widget-title">
-    <h2><b>Our Popurlar Place</b></h2>
+<div class="section-title welcome-section">
+  <header class="section-header">
+    <h3>Our Popurlar Place</h3>
+  </header>
 </div>
 
 @foreach(\App\Province::getdes_pro() as $con)

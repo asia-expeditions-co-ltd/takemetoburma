@@ -1,30 +1,36 @@
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
+ <?php   use App\component\Content; ?>
+ <!--==========================
+      Clients Section
+    ============================-->
+  
+    <section id="clients" class="wow fadeInUp" style="padding: 0;">
+      <div class="container">
 
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner" role="listbox">
-    <div class="item active">
-      <img src="img/031-s190x90.jpg" alt="...">
-      <div class="carousel-caption">
-        
+        <header class="section-header">
+          <h3>DESTINATIONS</h3>
+        </header>
+  
+        <div class="owl-carousel clients-carousel">
+          <?php $web = \App\Province::where(['country_id'=>122,'province_order'=>1])->get(); ?>
+          @foreach($web->chunk(2) as $key => $items) 
+            <div class="col-md-12">
+              @foreach($items as $key => $item)
+                <div class="portfolio-wrap">
+                  <figure>
+                    <a href="{{route('getDest')}}?location={{$item->slug}}" target="_blank" rel="noopener">
+                      <img src="{{Content::urlImage($item->province_picture)}}" class="img-fluid" alt="">
+                    </a>
+                  </figure>
+                  <div class="portfolio-info">
+                    <h4>{{$item->province_name}}</h4>
+                    <p style="height: 5px;"></p>
+                  </div>
+                </div>
+              @endforeach
+            </div>
+         @endforeach
+        </div>
+ 
       </div>
-    </div>
-    <div class="item">
-      <img src="img/032-s190x90.jpg" alt="...">
-      <div class="carousel-caption">
-      
-      </div>
-    </div>
-    
-  </div>
+    </section><!-- #clients -->
 
-  <!-- Controls -->
-  <a style="z-index: 9999;" class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a style="z-index: 9999;" class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>

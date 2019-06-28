@@ -157,10 +157,11 @@ use App\component\Content;
                     </div>
                 </div>                       
                 @endif
+                @if(count($tours) > 0)
             <div class="col-sm-12">
                     <div class="example">
                         <div class="title text-center widget-title"><h2><b>Tour Packages</b></h2></div>
-                        @if(count($tours) > 0)
+                        
                             @foreach($tours->chunk(3) as $tourchunk)
                             <div class="row" style="margin-bottom: 28px;">
                                 @foreach($tourchunk as $tour)
@@ -172,15 +173,12 @@ use App\component\Content;
                             @endforeach
                             <center>
                                 {{$tours->links()}}
-                            </center>
-                        @else
-                            <div class="alert alert-warning alert-dismissible" role="alert">
-                              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> <i class="fa fa-warning (alias)"></i> Look like not found
-                            </div>                       
-                        @endif    
+                            </center>                                   
+                            
                          
                     </div>
             </div>
+            @endif
         </div>
     </div>
 </div>

@@ -1,5 +1,9 @@
 @if($webs)
-	<div class="title text-center widget-title"><h2><b>Tour Packages</b></h2></div>
+	<div class="title text-center">
+		<header class="section-header">
+          <h3>Tour Packages</h3>
+        </header>
+    </div>
 	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="margin-bottom:22px;">
 	    <div class="carousel-inner">
 		    @foreach($webs->chunk(3) as $key => $chunkTour)

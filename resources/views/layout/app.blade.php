@@ -20,14 +20,35 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/font-awesome.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/custom.css')}}">
 	<script type="text/javascript" src="{{ asset('js/lib/jquery-3.3.1.min.js')}}"></script>
+
+
+
+  <!-- Libraries CSS Files -->
+  <link href="{{asset('/add_lib/lib/animate/animate.min.css')}}" rel="stylesheet"> <!-- for action slow -->
+  <link href="{{asset('/add_lib/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
+  <link href="{{asset('/add_lib/css/style.css')}}" rel="stylesheet">
+
+
 	<script type="text/javascript" src="{{ asset('js/app.js')}}"></script>
 	<script type="text/javascript" src="{{ asset('js/custom.js')}}"></script>
-	<script type="text/javascript" src="{{ asset('js/app/controller.js')}}"></script>	
+	<script type="text/javascript" src="{{ asset('js/app/controller.js')}}"></script>
+
+ 
 
 
 </head>
 <body>
 <div id="top"></div>
-	@yield('content')
+	@yield('content')  
+ 
+  <script src="{{asset('/add_lib/lib/superfish/superfish.min.js')}}"></script>
+  <script src="{{asset('/add_lib/lib/wow/wow.min.js')}}"></script>
+  <script src="{{asset('/add_lib/lib/waypoints/waypoints.min.js')}}"></script>
+  <script src="{{asset('/add_lib/lib/counterup/counterup.min.js')}}"></script>
+  <script src="{{asset('/add_lib/lib/owlcarousel/owl.carousel.min.js')}}"></script>
+  <script src="{{asset('/add_lib/lib/isotope/isotope.pkgd.min.js')}}"></script>  
+  <script src="{{asset('/add_lib/lib/touchSwipe/jquery.touchSwipe.min.js')}}"></script>
+  <script src="{{asset('/add_lib/js/main.js')}}"></script>
+
 </body>
 </html>
