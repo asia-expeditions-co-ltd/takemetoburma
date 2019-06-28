@@ -191,7 +191,7 @@
     autoplay: true,
     dots: false,
     loop: true,
-    responsive: { 0: { items: 2 }, 768: { items: 4 }, 900: { items: 5 }
+    responsive: { 0: { items: 2 }, 768: { items: 4 }, 900: { items: 4 }
     }
   });
 
