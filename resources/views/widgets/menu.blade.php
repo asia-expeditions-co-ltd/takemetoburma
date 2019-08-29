@@ -45,7 +45,7 @@
 			        	<li><a href="{{route('getDest')}}"><small class="btn btn-primary btn-sm btn-block">View More <i class="fa fa-angle-double-right"></i></small></a></li>
 			        </ul>
 		        </li>
-		        <li><a href="{{route('getActivity')}}">Our Activities</a></li>		       
+		        <li><a href="{{route('getpackage')}}">Our Package</a></li>		       
 		        <li><a href="{{route('getContact')}}">Contact Us</a> </li>		        
 		    </ul>		   
 	    </div>

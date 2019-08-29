@@ -20,7 +20,6 @@ class Province extends Model
     public function country(){
     	return $this->belongsTo(Country::class);
     }
-
     public static function getdes_pro(){
         return $data = \DB::table('province as pro')
         ->join('tbl_tours as tour', 'tour.province_id', '=', 'pro.id')

@@ -25,7 +25,9 @@
           </style>
 
 @section('content')
-@widget('menu')
+<!-- @widget('menu') -->
+@include('widgets.menudemo')
+
 <div class="overflownone" >
     <div class="col-md-12 nopaddingleft nopaddingright">
         <div id="myCarousel" class="slide carousel-fade" style="height: 400px;">
@@ -47,7 +49,7 @@
           
             <span class="fa fa-map-pin" style="color: #f2892d; font-size: 27px; padding: 13px 12px;"></span> {{{ $tour->country->country_name or ''}}} <i class="fa fa-angle-double-right"></i> {{{ $tour->province->province_name or ''}}} <i class="fa fa-angle-double-right"></i> {{$tour->title}}
         </span>
-        <span class="pull-right single-price">{{$tour->tour_price}} <small style="font-size: 0.5em;"> USD</small></span>
+        <span class="pull-right single-price">{{$tour->tour_price}} <small style="font-size: 0.5em;"> USD/Pax</small></span>
     <div class="clearfix"></div>        
     </div>    
 </div>
@@ -113,6 +115,7 @@ Tweet</a>
               
                      
             </div>
+            <div style="height: 35px;"></div>
             <div class="col-md-3">
                 <div class="panel single-title">
                     <div class="row">
@@ -122,11 +125,11 @@ Tweet</a>
                         {{csrf_field()}}          
                                
                         <div class="col-md-12">
-                            <div class="input-group form-group">
+                            <div class="input-group form-group date">
                                 <span class="input-group-btn">
-                                    <button class="btn btn-secondary" type="button"><i class="fa fa-calendar"></i></button>
+                                    <button class="btn btn-secondary" type="button" style="height: 36px;"><i class="fa fa-calendar"></i></button>
                                 </span>
-                                <input type="date" name="date" class="form-control textbox_color" placeholder="Date Check Out" required="">
+                                <input type="text" name="date" class="form-control textbox_color " placeholder="Date Check Out" required="">
                             </div>
                             <div class="form-group">
                                 <div class="row">                                                                   
@@ -308,6 +311,12 @@ $(document).ready(function(){
 
 });
 
+$('.input-group.date').datepicker({
+    autoclose: true,
+    todayHighlight: true,
+    clearBtn: true,
+    datesDisabled: ['06/06/2019'],
+  });
 
 </script>
 

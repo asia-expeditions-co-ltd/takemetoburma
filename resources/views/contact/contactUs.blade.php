@@ -8,7 +8,9 @@
             .addcol{color: #002aff; }
             .addcol1:focus{color: red; border-color: red;}
           </style>
-@widget('menu')
+<!-- @widget('menu') -->
+@include('widgets.menudemo')
+
 <div class="overflownone">
     <div class="col-md-12 nopaddingleft nopaddingright">
         <div class="slideshow">

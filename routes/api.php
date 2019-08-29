@@ -13,11 +13,15 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
-Route::apiResource('/tour', 'API\TourController');
+Route::apiResource('tour', 'API\TourController');
+Route::apiResource('destination', 'API\DestinationController');
+Route::apiResource('desslide', 'API\SlideController');
+Route::apiResource('subscribe', 'API\SubscribeController');
+
 
 // Route::group(['prefix'=> 'product'], function(){
 	

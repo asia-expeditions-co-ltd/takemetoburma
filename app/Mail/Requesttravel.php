@@ -30,6 +30,6 @@ class Requesttravel extends Mailable
      */
     public function build()
     {
-         return $this->from('info@asiagolftravel.com')->view('emails.request.requestravel')->with(['data' => $this->data]);
+         return $this->from('info@asiagolftravel.com','takemetoburma.com')->view('emails.request.requestravel')->with(['data' => $this->data]);
     }
 }

@@ -1,4 +1,3 @@
-	<!-- add like faceook -->
 	<?php use App\component\Content; ?>
 	 <meta property="og:url"           content="{{route('tourDetails', ['url'=> $tour->slug])}}" />
   <!-- <meta property="og:type"          content="http://takemetoburma.com" /> -->

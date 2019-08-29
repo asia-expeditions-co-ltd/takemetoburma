@@ -37,13 +37,13 @@ use App\component\Content; ?>
 		                            		<th>Choose Website</th>
 		                            	</tr>
 		                            	<tr>
-		                            		<td style="width: 20%;"><input type="file" name="slide" class="form-control">
+		                            		<td style="width: 20%;"><input type="file" onchange="getInfo(event)" id="imgs" name="slide" class="form-control"  required="">
 		                            			@if(isset($slide->picture))
-		                            			<img style="width: 100%;" src="{{Content::urlImage($slide->picture, '/photos/share/')}}">
+		                            			<img   style="width: 100%;" src="{{Content::urlImage($slide->picture, '/photos/share/')}}">
 		                            			<input type="hidden" name="old_image" value="{{$slide->picture}}">
 		                            			@endif
 		                            		</td>
-		                            		<td><input type="text" name="title" class="form-control" placeholder="Slide Title" value="{{isset($slide->name) ? $slide->name:'' }}"></td>
+		                            		<td><input  type="text" name="title" class="form-control" placeholder="Slide Title" value="{{isset($slide->name) ? $slide->name:'' }}"></td>
 		                            		<td>
 		                            			@foreach(\App\Web::orderBy('name', 'DESC')->get() as $web)
 		                            			<?php 
@@ -65,7 +65,7 @@ use App\component\Content; ?>
 			                        	echo '<input type="hidden" name="id" value="'.$slide->id.'">';
 			                        }
 			                        ?>
-				                	<input type="submit" name="btnSave" value="{{$action}}" class="btn bg-olive">
+				                	<input type="submit" name="btnSave" value="{{$action}}" class="btn bg-olive" id="ds" >
 				                </div>				                				
 						  	</div>
 					  	</div>				  
@@ -77,15 +77,53 @@ use App\component\Content; ?>
 	    <!-- /.content -->
 	</div>
   <!-- /.content-wrapper -->
-  @include('admin.include.footer')
+  <!-- @include('admin.include.footer') -->
 </div>
 
 <script type="text/javascript">
-	$('.LoadData').summernote({
-	  	height: 150,   //set editable area's height
-	  	codemirror: { // codemirror options
-	    theme: 'monokai'
-	  }
-	});
+	// $('.LoadData').summernote({
+	//   	height: 150,   //set editable area's height
+	//   	codemirror: { // codemirror options
+	//     theme: 'monokai'
+	//   }
+	// });
+const imageDimensions = file => new Promise((resolve, reject) => {
+	try {
+	    const img = new Image()    
+	    img.onload = () => {
+		    const { naturalWidth: width, naturalHeight: height } = img
+		    resolve({ width, height })
+	    }
+	    img.onerror = () => {
+	      	reject('There was some problem during the image loading')
+	    }
+	    img.src = URL.createObjectURL(file)
+	} catch (error) {
+	    	reject(error)
+	}
+})
+
+ const getInfo = ({ target: { files } }) => {
+ const [file] = files
+ imageDimensions(file)
+   .then(result => {
+   	
+if(result.width >= 1600 && result.height >= 600 ){
+	console.info(result.width)
+    console.info(result.height)
+    var input = document.getElementById("ds");
+    input.removeAttribute('disabled');
+
+}else{
+	alert('check size image')	
+	 var input = document.getElementById("ds");
+    input.setAttribute("disabled", true);
+}
+
+   })
+   .catch(error => {
+     console.error(error)
+   })
+}
 </script>
 @endsection

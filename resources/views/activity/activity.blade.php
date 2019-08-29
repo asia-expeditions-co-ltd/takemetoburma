@@ -4,7 +4,9 @@
 @section('description', 'Myanmar(Burma) is the good destinations to visit and have lot of golf courses')
 
 @section('content')
-@widget('menu')
+<!-- @widget('menu') -->
+@include('widgets.menudemo')
+
 <?php 
 use App\component\Content;
 ?>

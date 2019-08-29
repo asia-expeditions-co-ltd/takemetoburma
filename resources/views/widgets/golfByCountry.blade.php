@@ -3,7 +3,9 @@
 Golf Travel Myanmar
 @endsection
 @section('content')
-@widget('menu')
+<!-- @widget('menu') -->
+@include('widgets.menudemo')
+
 <div class="overflownone">
     <div class="col-md-12 nopaddingleft nopaddingright">
         <div class="slideshow">

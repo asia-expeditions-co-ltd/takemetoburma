@@ -89,7 +89,8 @@
 --------------------------------------------------------------*/
 
 #header {
-  padding: 30px 0;
+  background-color: #21212147;
+  padding: 35px 0;
   height: 92px;
   position: fixed;
   left: 0;
@@ -100,10 +101,21 @@
 }
 
 #header.header-scrolled {
-  background: rgba(0, 0, 0, 0.9);
-  padding: 20px 0;
+  padding: 26px 0 !important;
+  background: #ffffff;  
   height: 72px;
   transition: all 0.5s;
+  box-shadow: -1px 2px 7px -3px;
+  color: #111111;
+}
+ .imgtop{
+  transition: all 0.5s;
+  top: 15px;
+  position: absolute;
+  left: 15%;
+}
+.header-scrolled .imgtop{
+  top: 4px;
 }
 
 #header #logo {
@@ -336,7 +348,7 @@
 
 #nav-menu-container {
   float: right;
-  margin: 0;
+  margin-right: 10%;
 }
 
 /* Nav Meu Styling */
@@ -345,12 +357,15 @@
   padding: 0 8px 10px 8px;
   text-decoration: none;
   display: inline-block;
-  color: #fff;
+  color: #FAFAFA;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-size: 13px;
   text-transform: uppercase;
   outline: none;
+}
+.header-scrolled a{
+  color: #111111 !important;
 }
 
 .nav-menu li:hover > a,
@@ -406,11 +421,17 @@
   outline: none;
   cursor: pointer;
 }
-
-#mobile-nav-toggle i {
-  color: #fff;
+.header-scrolled #mobile-nav-toggle {
+   margin: 20px 20px 0 0 !important;
 }
 
+#mobile-nav-toggle i {
+  color: #111111;
+}
+.mobile-nav-active i{
+  color: #ffffff !important;
+
+}
 /* Mobile Nav Styling */
 
 #mobile-nav {
@@ -1502,7 +1523,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 @media (min-width: 1024px) {
   #header #logo {
-    padding-left: 60px;
+    /*padding-left: 60px;*/
   }
 
   #intro p {
@@ -1515,7 +1536,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   }
 
   #nav-menu-container {
-    padding-right: 60px;
+    /*padding-right: 60px;*/
   }
 }
 
@@ -1622,4 +1643,13 @@ body.mobile-nav-active #mobile-nav-toggle {
   margin: 0;
   opacity: 1;
   transition: 0s
+}
+.btn.btn-rose {
+    color: #fff;
+    background-color: #3097d1;
+    border-color: #3097d1;
+    box-shadow: 0 2px 2px 0 rgba(233,30,99,.14), 0 3px 1px -2px rgba(233,30,99,.2), 0 1px 5px 0 rgba(233,30,99,.12);
+}
+.btn.btn-rose:hover {
+    box-shadow: 0 14px 26px -12px rgba(233,30,99,.42), 0 4px 23px 0 rgba(0,0,0,.12), 0 8px 10px -5px rgb(48, 151, 209);
 }

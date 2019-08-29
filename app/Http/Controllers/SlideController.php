@@ -31,8 +31,8 @@ class SlideController extends Controller
 	            $image = $req->file('slide');
 	            // $filename = time().'-'.$image->getClientOriginalName();
                 $filename=str_slug(time()."_".pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME), "_").'.'.$image->getClientOriginalExtension();
-	            $img = Image::make($image->getRealPath())->fit(1600, 770);
-	            $image->move(public_path('photos/share/'), $filename);   
+	            $img = Image::make($image->getRealPath())->fit(1600, 600);
+	            $img->save(public_path('photos/share/').$filename);   
 	        }else{
 	           $filename = $req->old_image;
 		    }
@@ -47,8 +47,8 @@ class SlideController extends Controller
     	if ( $req->hasFile('slide') ) {
             $image = $req->file('slide');
             $filename = time().'-'.$image->getClientOriginalName();
-            $img = Image::make($image->getRealPath())->fit(1600, 770);
-            $image->move(public_path('photos/share/'), $filename);   
+            $img = Image::make($image->getRealPath())->fit(1600, 600);
+            $img->save(public_path('photos/share/').$filename);   
         }else{
            $filename = "";
 	    }

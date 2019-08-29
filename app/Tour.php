@@ -18,15 +18,15 @@ class Tour extends Model
     }
 
     public function country(){
-    	return $this->belongsTo(Country::class);
+    	return $this->belongsTo(Country::class)->select('id', 'country_name', 'country_photo', 'country_slug');
     }
 
     public function province(){
-    	return $this->belongsTo(Province::class);
+    	return $this->belongsTo(Province::class)->select('id', 'province_name', 'province_photo', 'slug');
     }
 
     public function user(){
-    	return $this->belongsTo(User::class);
+    	return $this->belongsTo(User::class)->select('id', 'fullname', 'email', 'picture');
     }
 
     public static function getcatTour( $cat_id, $web, $type = 1, $location = 126){

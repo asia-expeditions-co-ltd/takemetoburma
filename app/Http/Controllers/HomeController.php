@@ -17,6 +17,8 @@ use App\Category;
 use App\Events;
 use App\Slide;
 use App\CountView;
+use Illuminate\Http\RedirectResponse;
+
 
 class HomeController extends Controller
 {
@@ -24,14 +26,14 @@ class HomeController extends Controller
     public function getHome(){
 
         $getSlide = Web::find(config('app.web'))->slide()->orderBy('id', 'DESC')->get();
-        $webs = Web::find(config('app.web'))->tour()->where(['status'=>1, 'type'=>1])->get();
+        $webs = Web::find(config('app.web'))->tour()->where(['status'=>1, 'type'=>1])->paginate(6);
         return view('index', compact('webs', 'getSlide'));
     }
 
 
     public function getDestination(Request $req){
-        if ( !empty($req->location) && $req->tour_type != '' && !empty($req->cat) ) {
-            $prov=Province::where('slug', $req->location)->first();   
+        if ( !empty($req->location) && $req->tour_type != '' && !empty($req->cat) ){
+            $prov=Province::where('slug', $req->location)->first();
             $cat = Category::find($req->cat);       
             $tours=Tour::getcatTour($req->cat, config('app.web'), $req->tour_type, $prov->id);
         }elseif (!empty($req->location) && $req->tour_type != '') {
@@ -59,24 +61,25 @@ class HomeController extends Controller
 
     // get view single tour
     public function getTour($dest_Name){
-    $tour      = Web::find(config('app.web'))->tour()->where(['status'=>1,'slug'=>$dest_Name])->orderBy('id', 'DESC')->first();
-            
-    $dataip    = unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip='.$_SERVER['REMOTE_ADDR']));
-    $data      = $dataip['geoplugin_request'];
-    $today     = date('Y-m-d 00:00:00');
-
-         // $yesterday = date('Y-m-d 00:00:00',strtotime(date($dt). "+1 days"));
-      if ( !CountView::Getdate($today, $data , $tour->id)) {
-                $adds                 = new CountView;
-                $adds->ip             = $dataip['geoplugin_request'];
-                $adds->cityName       = $dataip['geoplugin_city'];
-                $adds->countryName    = $dataip['geoplugin_countryName'];
-                $adds->timezone       = $dataip['geoplugin_timezone'];
-                $adds->tour_id        = $tour->id;
-                $adds->web_id         = 1;
-                $adds->save();   
-            }
-        return view('destination.singleView', compact('tour'));
+        $tour      = Web::find(config('app.web'))->tour()->where(['status'=>1,'slug'=>$dest_Name])->orderBy('id', 'DESC')->first();                
+        $dataip    = unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip='.$_SERVER['REMOTE_ADDR']));
+        $data      = $dataip['geoplugin_request'];
+        $today     = date('Y-m-d 00:00:00');
+        // $yesterday = date('Y-m-d 00:00:00',strtotime(date($dt). "+1 days"));      
+        if ($tour) {
+              if ( !CountView::Getdate($today, $data , $tour->id)) {
+                        $adds                 = new CountView;
+                        $adds->ip             = $dataip['geoplugin_request'];
+                        $adds->cityName       = $dataip['geoplugin_city'];
+                        $adds->countryName    = $dataip['geoplugin_countryName'];
+                        $adds->timezone       = $dataip['geoplugin_timezone'];
+                        $adds->tour_id        = $tour->id;
+                        $adds->web_id         = 1;
+                        $adds->save();   
+                    }
+                return view('destination.singleView', compact('tour'));
+        }
+        return view('errors.404');        
     }
 
 
@@ -120,6 +123,12 @@ class HomeController extends Controller
         $Onew = Events::where('slug', $New)->first();
         return view('activity.singActivity', compact('Onew'));
     }
+
+    public function getpackage(){
+        $package  =  Web::find(config('app.web'))->tour()->where(['status'=>1])->orderBy('id', 'DESC')->paginate(6);
+        return view('activity.our_package', compact('package'));
+    }
+
 
     // // for request tee time()
     // public function getRequestTeeTime(Request $req){
