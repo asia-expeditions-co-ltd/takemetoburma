@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Response;
+use App\Province;
 
 class DestinationController extends Controller
 {
@@ -15,7 +16,9 @@ class DestinationController extends Controller
      */
     public function index(Request $req)
     {
-            
+    if ($req->pro_slug) {     
+     $data = Province::where('slug',$req->pro_slug)->first();
+    }else{ 
     $data = \DB::table('province as pro')
         ->join('tbl_tours as tour', 'tour.province_id', '=', 'pro.id')
         ->join('tour_web as tweb', 'tour.id' ,'=', 'tweb.tour_id')
@@ -26,6 +29,7 @@ class DestinationController extends Controller
         ->limit(6)
         ->orderBy('pro.province_order', 'DESC')
         ->get();
+    }
         return Response::json($data)->header("Access-Control-Allow-Origin",  "*");
     }
 

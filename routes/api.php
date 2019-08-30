@@ -21,6 +21,7 @@ Route::apiResource('tour', 'API\TourController');
 Route::apiResource('destination', 'API\DestinationController');
 Route::apiResource('desslide', 'API\SlideController');
 Route::apiResource('subscribe', 'API\SubscribeController');
+Route::post('/contactusSend', 'HomeController@sendContact');
 
 
 // Route::group(['prefix'=> 'product'], function(){

@@ -163,8 +163,11 @@ class HomeController extends Controller
                  'email'=> $req->email, 
                  'message'=> $req->message
              ];
-        Mail::to(config('app.email'))->send(new ContactUs($data));
-        return back()->with('message' , 'Your request booking has been submitted we will contact you back in shortly..! Thanks you.'); 
+
+        // return $data;
+        Mail::to($req->email)->send(new ContactUs($data));
+        return 123;
+        return back()->with('message' , 'Your request has been submitted we will contact you back in shortly..! Thanks you.'); 
 
 }
 
